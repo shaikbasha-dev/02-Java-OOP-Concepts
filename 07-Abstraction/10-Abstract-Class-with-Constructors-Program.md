@@ -43,7 +43,6 @@ Instead of copying that initialization logic into every subclass, the abstract b
 ## 7) Complete Java Program
 */
 
-package FIle7;
 
 abstract class Animal {
     String name;
