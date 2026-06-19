@@ -1,5 +1,5 @@
 
-09-Interface-vs-Abstract-Class
+06-Interface-vs-Abstract-Class
 
 1. What is an Interface?
 An interface in Java is a contract that defines what a class must do.
