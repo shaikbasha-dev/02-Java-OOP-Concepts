@@ -18,7 +18,7 @@ Encapsulation can be defined as binding together data members & member functions
 - Lets the class decide how data should be accessed
 - Makes code more professional and reliable
 
-Examples of Encapsulation are:
+Scenarios of Encapsulation are:
 
 # Scenario 1: No Security (Direct Access Available)
 
