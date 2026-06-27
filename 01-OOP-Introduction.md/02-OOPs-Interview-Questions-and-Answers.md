@@ -1,7 +1,7 @@
 OOPs Interview Questions and Answers in Java
 ===========================================
 
-1. What is OOPs?
+1. What is OOPs? \n
 OOPs stands for Object-Oriented Programming. It is a programming style based on objects and classes.
 
 2. What is a class in Java?
