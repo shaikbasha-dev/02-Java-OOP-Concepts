@@ -1,7 +1,3 @@
-Absolutely — below is a explanation of **`this` Keyword in Constructor** in Java:
- 
----
-
 # `this` Keyword in Constructor
 
 ## Definition
