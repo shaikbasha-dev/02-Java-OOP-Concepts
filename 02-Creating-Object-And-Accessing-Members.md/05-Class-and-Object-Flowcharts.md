@@ -1,4 +1,6 @@
-Here is a **flowchart-style diagram** for **Class and Object in Java**.
+# Class and Object
+
+**flowchart-style diagram** for **Class and Object in Java**.
 
 ---
 
@@ -22,6 +24,7 @@ Here is a **flowchart-style diagram** for **Class and Object in Java**.
    |
    v
 [Program output]
+
 ```
 
 ---
@@ -47,6 +50,7 @@ s1.age = 21
    v
 Call method:
 s1.display()
+
 ```
 
 ---
@@ -73,6 +77,7 @@ s1.display()
         |
         v
 [Show output]
+
 ```
 
 ---
@@ -89,6 +94,7 @@ Object
   |---- created from class
   |
   |---- uses class members
+
 ```
 
 ---
@@ -102,6 +108,5 @@ Class ------------------> Object
 Class defines           Object uses
 - variables             - values
 - methods               - behavior
-```
 
----
+```
