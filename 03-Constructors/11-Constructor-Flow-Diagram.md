@@ -1,7 +1,3 @@
-Absolutely — below is a explanation of **Constructor Flow Diagram** in Java :
-
----
-
 # Constructor Flow Diagram in Java
 
 ## Definition
