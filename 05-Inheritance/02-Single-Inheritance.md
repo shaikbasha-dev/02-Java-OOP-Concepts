@@ -1,147 +1,135 @@
-Single Inheritance in Java
+# Single Inheritance in Java
 
-Definition
-Single inheritance means that one class can inherit from only one parent class.
-In Java, a child class can extend exactly one superclass.
+## Introduction to Single Inheritance
 
-Why this concept is used
-- It helps in reusing code from a parent class.
-- It reduces duplicate code.
-- It makes programs easier to understand and maintain.
-- It represents real-world relationships in a clear way.
+### Definition
 
-How this helps Java programming
-- Avoids writing the same logic again and again.
-- Keeps the code organized.
-- Helps in building a structured class hierarchy.
-- Makes future updates easier because changes in the parent class affect all child classes.
+Single inheritance is a core Object-Oriented Programming (OOP) mechanism where a subclass (child class) inherits the state and behaviors of exactly one superclass (parent class). In Java, this structural relationship is strictly enforced using the `extends` keyword. A class can never have more than one direct parent class.
 
-Important theory
-- Parent class or Superclass: the class being inherited from.
-- Child class or Subclass: the class that inherits from another class.
-- Keyword used: extends
-- In single inheritance, one child class can have only one parent.
+### Strategic Engineering Value
 
-Example idea
-- Animal is the parent class.
-- Dog is the child class.
-- Dog inherits features from Animal.
+* **Code Reusability:** Derived classes immediately reuse compiled logic from the base class without copying code.
+* **Streamlined Maintenance:** Universal system updates can be applied directly to the superclass, cascading down to all subclasses.
+* **Polymorphic Foundations:** Single inheritance sets up a clear "IS-A" relationship (e.g., a `Dog` IS-A `Animal`), which forms the basis for runtime polymorphism and clean dynamic method dispatch.
 
-Program 1: Single Inheritance Example
+---
 
-Code:
+## Technical Architecture
 
+```
+       ┌────────────────────────┐
+       │   Superclass: Animal   │
+       └───────────┬────────────┘
+                   │
+                   │ extends
+                   ▼
+       ┌────────────────────────┐
+       │     Subclass: Dog      │
+       └────────────────────────┘
+
+```
+
+### Member Inheritance Layout
+
+* **Superclass `Animal` Surface:** Declares foundational actions like `eat()`.
+* **Subclass `Dog` Surface:** Extends the parent's capabilities by adding specialized actions like `bark()`. At runtime, a `Dog` instance has access to both interfaces.
+
+---
+
+## Code Implementation: Single Inheritance Breakdown
+
+### Implementation File
+
+```java
+// Base class providing generic state behaviors
 class Animal {
     public void eat() {
         System.out.println("Animal eats food");
     }
 }
 
+// Derived class extending exactly one superclass
 class Dog extends Animal {
     public void bark() {
         System.out.println("Dog barks");
     }
 }
 
+// Main execution entry point
 public class SingleInheritanceDemo {
     public static void main(String[] args) {
+        // Instantiates the child object in memory
         Dog d = new Dog();
+        
+        // Invokes inherited behavior from the parent class
         d.eat();
+        
+        // Invokes specialized behavior from the child class
         d.bark();
     }
 }
 
-Line-by-line explanation with comments
+```
 
-class Animal {                           // Line 1: Creates the parent class named Animal
-    public void eat() {                  // Line 2: Creates a method eat() in Animal
-        System.out.println("Animal eats food"); // Line 3: Prints message when eat() is called
-    }                                    // Line 4: Ends the eat() method
-}                                        // Line 5: Ends the Animal class
+### Execution Output
 
-class Dog extends Animal {               // Line 6: Creates Dog class and makes it inherit Animal
-    public void bark() {                 // Line 7: Creates bark() method in Dog
-        System.out.println("Dog barks"); // Line 8: Prints message when bark() is called
-    }                                    // Line 9: Ends bark() method
-}                                        // Line 10: Ends Dog class
-
-public class SingleInheritanceDemo {     // Line 11: Declares the main class
-    public static void main(String[] args) { // Line 12: Main method starts program execution
-        Dog d = new Dog();               // Line 13: Creates an object of Dog
-        d.eat();                         // Line 14: Calls inherited eat() method from Animal
-        d.bark();                        // Line 15: Calls bark() method from Dog
-    }                                    // Line 16: Ends main method
-}                                        // Line 17: Ends SingleInheritanceDemo class
-
-Why this program is used
-This program is used to show that one child class can inherit the features of one parent class.
-It helps in understanding how `extends` works in Java.
-
-How this program helps in Java learning
-- Shows the idea of parent-child relationships.
-- Demonstrates code reuse.
-- Helps understand object-oriented programming clearly.
-
-Pseudocode
-START
-    CREATE class Animal
-    DEFINE eat()
-
-    CREATE class Dog extends Animal
-    DEFINE bark()
-
-    CREATE main class
-    CREATE object of Dog
-    CALL eat()
-    CALL bark()
-END
-
-Output
+```text
 Animal eats food
 Dog barks
 
-Summary
-Single inheritance allows one class to inherit from only one parent class.
-It helps reduce repetition and improve code reuse.
-In this example, Dog inherits from Animal and uses both inherited and its own methods.
+```
 
-Important note
-This is called single inheritance because Dog has only one direct parent, which is Animal.
+---
 
-Diagram explanation
+## Execution Logic and Step-by-Step Flow
 
-Parent Class: Animal
-    |
-    | extends
-    v
-Child Class: Dog
+### Operational Pipeline
 
-Animal has:
-- eat()
+```
+  [Start Execution]
+          │
+          ▼
+  [Instantiate Dog Object 'd' in Heap Space]
+          │
+          ▼
+  [Invoke d.eat() via Superclass Reference Path]
+          │
+          ▼
+  [Invoke d.bark() via Direct Subclass Reference Path]
+          │
+          ▼
+   [End Execution]
 
-Dog has:
-- bark()
-- can also use eat() from Animal
+```
 
-Visual structure
-Animal
-  |
-  |---> Dog
+### High-Level Pseudocode
 
-Simple flow diagram
-Start
-  |
-  v
-Create object of Dog
-  |
-  v
-Call eat() from Animal
-  |
-  v
-Call bark() from Dog
-  |
-  v
-End
+```text
+START
+    DEFINE Class Animal:
+        METHOD eat():
+            PRINT "Animal eats food"
 
-One-line definition
-Single inheritance is when one class inherits the properties and behaviors of only one parent class.
+    DEFINE Class Dog EXTENDS Animal:
+        METHOD bark():
+            PRINT "Dog barks"
+
+    DEFINE Execution Class SingleInheritanceDemo:
+        EXECUTE main:
+            ALLOCATE AND INSTANTIATE Dog object as 'd'
+            EXECUTE d.eat()   // Inherited Lookup
+            EXECUTE d.bark()  // Direct Lookup
+END
+
+```
+
+---
+
+## Architectural Summary
+
+* **Explicit Parentage:** Java limits class-level hierarchies to single inheritance to prevent the complexity and conflicts of multiple inheritance (such as the famous "Diamond Problem").
+* **Structural Is-A Relationship:** By using `class Dog extends Animal`, the `Dog` class implicitly receives all non-private fields and methods from `Animal` while keeping its own implementation clean.
+
+> **Key Takeaway:** Single inheritance ensures a clean, single-parent lineage for every Java class. This keeps class relationships straightforward and prevents inheritance conflicts while maximizing code reuse.
+
+---
