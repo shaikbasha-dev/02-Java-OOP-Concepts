@@ -1,7 +1,3 @@
-Absolutely — below is a explanation of **Constructor Chaining** in Java:
-
----
-
 # Constructor Chaining in Java
 
 ## Definition
