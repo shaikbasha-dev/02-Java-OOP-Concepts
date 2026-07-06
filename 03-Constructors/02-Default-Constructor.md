@@ -1,19 +1,3 @@
-I’m restructuring this into a polished, repository-ready note set now so every program includes the full explanation, output, comments, and summary you asked for.
-
-You were right to ask for a fuller version. Below is a **professional, repository-style explanation** of **Default Constructor in Java** with:
-
-- clear definitions
-- why the program is used
-- how it helps in Java
-- pseudocode
-- headline for every program
-- explanation of every line
-- comments on every line
-- output for every program
-- summary for every program
-
----
-
 # Default Constructor in Java
 
 ## 1. Definition
