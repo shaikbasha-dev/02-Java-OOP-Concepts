@@ -1,7 +1,3 @@
-Here is a **Constructor Overloading** in Java: 
-
----
-
 # Constructor Overloading in Java
 
 ## Definition
