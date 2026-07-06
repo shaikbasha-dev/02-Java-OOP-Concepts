@@ -1,4 +1,4 @@
-**Parameterized Constructor**:
+# Parameterized Constructor:
 
 # Parameterized Constructor in Java
 
