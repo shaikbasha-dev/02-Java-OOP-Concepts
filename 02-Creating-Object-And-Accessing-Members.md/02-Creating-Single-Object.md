@@ -1,11 +1,11 @@
-/*
-Definition
+
+# Definition
 
 This program shows how to create an object of a class, store values in its variables,
 print those values, and call its methods.
 
 Java Program with comments on each step
-*/
+
 
 // Main class of the program
 public class StudentApp {
@@ -73,8 +73,7 @@ class Student {
     }
 }
 
-/*
-Output:
+## Output:
 Name: Apple
 Age: 18
 Gender: Male
@@ -82,14 +81,14 @@ Student is coming to school
 Student is eating food
 Student is going home
 
-Explanation
+## Explanation
 
 - `Student s = new Student();` creates a new object.
 - `s.name`, `s.age`, and `s.gender` store the student's details.
 - `System.out.println(...)` prints the values.
 - The methods `comming()`, `eat()`, and `go()` display messages.
 
-Pseudocode
+## Pseudocode
 
 START
     create object s of Student
@@ -104,7 +103,7 @@ START
     call s.go()
 END
 
-Code Explanation
+## Code Explanation
 
 - `public class StudentApp` is the main class.
 - `main()` is the starting point of the program.
@@ -112,7 +111,7 @@ Code Explanation
 - Fields (`name`, `age`, `gender`) store data.
 - Methods define actions.
 
-Important Points
+## Important Points
 
 - A class is a blueprint.
 - An object is an instance of a class.
@@ -120,8 +119,10 @@ Important Points
 - `int` is used for integer values.
 - The method name `comming()` is spelled as written in the code.
 
-Summary
+## Summary
 
 This program demonstrates object creation, data storage, printing values,
 and calling methods in Java.
-*/
+
+
+```
