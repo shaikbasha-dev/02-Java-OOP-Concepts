@@ -1,4 +1,4 @@
-*Introduction to constructors in Java*:
+# Introduction to constructors in Java:
 
 ## What is a Constructor?
 A **constructor** is a special member of a class that is used to **initialize objects** when they are created.
