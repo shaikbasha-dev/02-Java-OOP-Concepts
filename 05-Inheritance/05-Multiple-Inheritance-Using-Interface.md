@@ -1,165 +1,151 @@
-Multiple Inheritance Using Interface in Java
+# Multiple Inheritance Using Interface in Java
 
-Definition
-Multiple inheritance using interface means a class can inherit behavior from more than one interface.
-Java does not allow a class to inherit from multiple classes, but it allows a class to implement multiple interfaces.
+## Introduction to Multiple Interface Inheritance
 
-Why this concept is used
-- It avoids the problems caused by multiple class inheritance.
-- It allows one class to use features from more than one source.
-- It helps in designing flexible and reusable code.
-- It supports abstraction and contract-based programming.
+### Definition
 
-How this helps Java programming
-- Provides a way to achieve multiple inheritance safely.
-- Keeps code modular and organized.
-- Promotes loose coupling between classes.
-- Makes programs easier to extend.
+Multiple inheritance using interfaces is a design pattern where a single class implements more than one interface. While Java explicitly bans multiple inheritance with classes to avoid ambiguity issues (such as the infamous "Diamond Problem"), it fully supports a single class implementing multiple interfaces to adopt multiple behaviors safely.
 
-Important theory
-- Interface: a blueprint that defines what methods a class must implement.
-- implements keyword: used by a class to inherit from an interface.
-- A class can implement multiple interfaces.
-- Interfaces do not contain method bodies (unless default methods are used).
+### Strategic Engineering Value
 
-Example idea
-- Swim is one interface.
-- Fly is another interface.
-- Duck implements both interfaces.
+* **Diamond Problem Mitigation:** Interfaces separate method declarations from their actual implementation. Because a standard interface doesn't dictate *how* a method runs, there are no conflicting parent implementations for a subclass to inherit.
+* **Capability-Based Composition:** Allows objects to be defined by what they can *do* (their capabilities) rather than just what they *are* fundamentally.
+* **Strict Architecture Contracts:** Enforces explicit API rules across entirely unrelated class structures.
 
-Program 1: Multiple Inheritance Using Interface
+---
 
-Code:
+## Technical Architecture
 
+```
+    ┌──────────────────────┐        ┌──────────────────────┐
+    │   Interface: Swim    │        │    Interface: Fly    │
+    └──────────┬───────────┘        └───────────┬──────────┘
+               │                                │
+               └───────────────┬────────────────┘
+                               │ implements
+                               ▼
+                   ┌────────────────────────┐
+                   │      Class: Duck       │
+                   └────────────────────────┘
+
+```
+
+### Member Inheritance Layout
+
+* **Interface `Swim` Contract:** Declares a stateless capability requirement: `swim()`.
+* **Interface `Fly` Contract:** Declares a stateless capability requirement: `fly()`.
+* **Class `Duck` Surface:** Satisfies both contracts by implementing the concrete logic for both `swim()` and `fly()` inside its own body.
+
+---
+
+## Code Implementation: Interface-Driven Multiple Inheritance
+
+### Implementation File
+
+```java
+// Contract defining swimming capability
 interface Swim {
     void swim();
 }
 
+// Contract defining flying capability
 interface Fly {
     void fly();
 }
 
+// Concrete class fulfilling both behavioral contracts simultaneously 
 class Duck implements Swim, Fly {
+    @Override
     public void swim() {
         System.out.println("Duck swims");
     }
 
+    @Override
     public void fly() {
         System.out.println("Duck flies");
     }
 }
 
+// Main execution entry point
 public class MultipleInheritanceUsingInterfaceDemo {
     public static void main(String[] args) {
+        // Instantiate the multi-capable object
         Duck d = new Duck();
+        
+        // Invoke behaviors guaranteed by the respective interfaces
         d.swim();
         d.fly();
     }
 }
 
-Line-by-line explanation with comments
+```
 
-interface Swim {                       // Line 1: Declares interface Swim
-    void swim();                        // Line 2: Declares abstract method swim()
-}                                       // Line 3: Ends interface Swim
+### Execution Output
 
-interface Fly {                        // Line 4: Declares interface Fly
-    void fly();                         // Line 5: Declares abstract method fly()
-}                                       // Line 6: Ends interface Fly
-
-class Duck implements Swim, Fly {       // Line 7: Duck implements both interfaces
-    public void swim() {                // Line 8: Defines swim() method
-        System.out.println("Duck swims"); // Line 9: Prints swim message
-    }                                   // Line 10: Ends swim() method
-
-    public void fly() {                 // Line 11: Defines fly() method
-        System.out.println("Duck flies"); // Line 12: Prints fly message
-    }                                   // Line 13: Ends fly() method
-}                                       // Line 14: Ends Duck class
-
-public class MultipleInheritanceUsingInterfaceDemo { // Line 15: Main class declaration
-    public static void main(String[] args) { // Line 16: Main method starts execution
-        Duck d = new Duck();            // Line 17: Creates Duck object
-        d.swim();                       // Line 18: Calls swim() method
-        d.fly();                        // Line 19: Calls fly() method
-    }                                   // Line 20: Ends main method
-}                                       // Line 21: Ends class
-
-Why this program is used
-This program is used to show that a class can inherit features from more than one interface.
-It helps in understanding how Java solves the problem of multiple inheritance.
-
-How this program helps in Java learning
-- Shows how multiple inheritance is achieved using interfaces.
-- Explains the difference between class inheritance and interface inheritance.
-- Helps students understand abstraction and polymorphism better.
-
-Pseudocode
-START
-    CREATE interface Swim
-    DECLARE swim()
-
-    CREATE interface Fly
-    DECLARE fly()
-
-    CREATE class Duck implements Swim, Fly
-    DEFINE swim()
-    DEFINE fly()
-
-    CREATE main method
-    CREATE object of Duck
-    CALL swim()
-    CALL fly()
-END
-
-Output
+```text
 Duck swims
 Duck flies
 
-Summary
-Java does not allow multiple inheritance using classes directly, but it allows a class to implement multiple interfaces.
-This example shows how Duck inherits behavior from both Swim and Fly interfaces.
+```
 
-Important note
-A class can implement many interfaces, but it can extend only one class.
+---
 
-Diagram explanation
+## Execution Logic and Step-by-Step Flow
 
-+---------+
-|  Swim    |
-| swim()   |
-+---------+
-      |
-      |
-+---------+
-|   Fly    |
-| fly()    |
-+---------+
-      |
-      |
-     Duck
-   implements both
+### Operational Pipeline
 
-Visual structure
-Swim  +  Fly
-   \    /
-    \  /
-      Duck
+```
+         [Start Execution]
+                 │
+                 ▼
+     [Instantiate Duck Object 'd']
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+   [Invoke d.swim()] [Invoke d.fly()]
+        │                 │
+        ▼                 ▼
+   [Execute Duck     [Execute Duck
+   .swim() Logic]    .fly() Logic]
+        │                 │
+        └────────┬────────┘
+                 ▼
+          [End Execution]
 
-Simple flow diagram
-Start
-  |
-  v
-Create Duck object
-  |
-  v
-Call swim() from Swim interface
-  |
-  v
-Call fly() from Fly interface
-  |
-  v
-End
+```
 
-One-line definition
-Multiple inheritance using interface means a class implements more than one interface to reuse behaviors from multiple sources.
+### High-Level Pseudocode
+
+```text
+START
+    DEFINE Interface Swim:
+        DECLARE ABSTRACT METHOD swim()
+
+    DEFINE Interface Fly:
+        DECLARE ABSTRACT METHOD fly()
+
+    DEFINE Class Duck IMPLEMENTS Swim, Fly:
+        METHOD swim():
+            PRINT "Duck swims"
+        METHOD fly():
+            PRINT "Duck flies"
+
+    DEFINE Execution Class MultipleInheritanceUsingInterfaceDemo:
+        EXECUTE main:
+            ALLOCATE AND INSTANTIATE Duck object as 'd'
+            EXECUTE d.swim() // Dispatched directly to Duck's implementation
+            EXECUTE d.fly()  // Dispatched directly to Duck's implementation
+END
+
+```
+
+---
+
+## Architectural Summary
+
+* **Single vs. Multiple Rules:** In Java, a class is strictly limited to extending **one** superclass, but it has the freedom to implement an **infinite** number of interfaces.
+* **Decoupled Contracts:** Using interfaces keeps your application components loosely coupled. You can treat a `Duck` object purely as a `Swim` type in a water simulation, or purely as a `Fly` type in an airspace controller, separating its roles completely.
+
+> **Key Takeaway:** Java achieves safe multiple inheritance via interfaces. This allows a class to combine and implement completely different behaviors without the architectural risks of inheriting from multiple classes.
+
+---
