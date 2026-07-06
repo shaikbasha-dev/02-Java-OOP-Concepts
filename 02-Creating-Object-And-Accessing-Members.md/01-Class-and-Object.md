@@ -1,6 +1,6 @@
-Class and Object in Java
+# Class and Object in Java
 
-Definition
+## Definition
 
 A class is a blueprint or template used to create objects. It defines the data (variables) and behavior (methods) that an object will have.
 
@@ -8,7 +8,7 @@ An object is a real instance of a class. It represents a real-world entity and c
 
 ---
 
-What is a Class?
+## What is a Class?
 
 A class is like a blueprint for creating objects.
 
@@ -17,16 +17,19 @@ A class defines:
 * Data (variables or fields)
 * Behavior (methods)
 
-Example:
+### Example:
 
 class Car {
 String color;
 int speed;
 
+
 ```
+
 void drive() {
-    System.out.println("Car is moving");
+System.out.println("Car is moving");
 }
+
 ```
 
 }
@@ -38,11 +41,11 @@ In this example:
 
 ---
 
-What is an Object?
+## What is an Object?
 
 An object is an instance of a class.
 
-Example:
+### Example:
 
 Car c1 = new Car();
 
@@ -54,7 +57,7 @@ Here:
 
 ---
 
-Class vs Object
+## Class vs Object
 
 | Class                 | Object                   |
 | --------------------- | ------------------------ |
@@ -64,50 +67,60 @@ Class vs Object
 
 ---
 
-Simple Example
+## Simple Example
 
 class Student {
 
+
 ```
+
 String name;
 int age;
 
 void display() {
-    System.out.println("Name: " + name);
-    System.out.println("Age: " + age);
+System.out.println("Name: " + name);
+System.out.println("Age: " + age);
 }
+
 ```
 
 }
 
 public class Main {
 
+
 ```
+
 public static void main(String[] args) {
 
-    Student s1 = new Student();
+```
+Student s1 = new Student();
 
-    s1.name = "Rahul";
-    s1.age = 20;
+s1.name = "Rahul";
+s1.age = 20;
 
-    s1.display();
-}
+s1.display();
+
 ```
 
 }
 
-Output
+```
+
+}
+
+### Output
 
 Name: Rahul
 Age: 20
 
 ---
 
-How Objects Access Class Members
+## How Objects Access Class Members
 
 Objects access variables and methods using the dot operator (.).
 
-Example:
+### Example:
 
 s1.name = "Rahul";
 s1.display();
@@ -120,7 +133,7 @@ Here:
 
 ---
 
-Real-Life Analogy
+## Real-Life Analogy
 
 Class : Cookie Cutter
 
@@ -130,7 +143,7 @@ A class is used to create multiple objects, just as a cookie cutter is used to c
 
 ---
 
-Multiple Objects Example
+## Multiple Objects Example
 
 Student s1 = new Student();
 Student s2 = new Student();
@@ -140,7 +153,7 @@ All objects belong to the same class but store different values independently.
 
 ---
 
-Example with Two Objects
+## Example with Two Objects
 
 Student s1 = new Student();
 Student s2 = new Student();
@@ -154,7 +167,7 @@ s2.age = 22;
 s1.display();
 s2.display();
 
-Output
+### Output
 
 Name: Amit
 Age: 21
@@ -164,7 +177,7 @@ Age: 22
 
 ---
 
-Important Points
+## Important Points
 
 * A class is a blueprint for objects.
 * An object is an instance of a class.
@@ -175,6 +188,11 @@ Important Points
 
 ---
 
-Summary
+## Summary
 
 A class defines what an object should be, and an object is the actual instance created from that class. Classes and objects are the foundation of Object Oriented Programming in Java.
+
+```
+
+---
+
