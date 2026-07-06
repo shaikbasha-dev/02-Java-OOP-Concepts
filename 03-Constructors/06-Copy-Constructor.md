@@ -1,7 +1,3 @@
-Absolutely — here is a explanation of **Copy Constructor** in Java:
-
----
-
 # Copy Constructor in Java
 
 ## Definition
