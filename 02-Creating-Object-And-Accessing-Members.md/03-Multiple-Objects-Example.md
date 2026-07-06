@@ -1,13 +1,12 @@
-/*
-Definition
+# Definition
 
 This program demonstrates how to create multiple objects of the same class, assign different values to their instance variables, access their properties, and invoke their methods independently.
 
 The example uses a Car class to show that each object maintains its own state while sharing the same behavior defined by the class.
 
 Java Program with comments on each step
-*/
 
+```java
 // Main class of the program
 public class CarApp {
 
@@ -64,8 +63,10 @@ class Car {
     }
 }
 
-/*
-Output:
+```
+
+## Output:
+
 First Car Details:
 Brand: Maruthi
 Color: red
@@ -78,47 +79,61 @@ Color: Blue
 Price: 10646464.0
 The car is accelerating.
 
-Explanation
+## Explanation
 
-- `Car c1 = new Car();` creates the first object.
-- `Car c2 = new Car();` creates the second object.
-- `brand`, `color`, and `price` store the car details.
-- `accelerate()` prints the action of the car.
+### - `Car c1 = new Car();` creates the first object.
 
-Pseudocode
+### - `Car c2 = new Car();` creates the second object.
+
+### - `brand`, `color`, and `price` store the car details.
+
+### - `accelerate()` prints the action of the car.
+
+## Pseudocode
 
 START
-    create object c1 of Car
-    set c1.brand = "Maruthi"
-    set c1.color = "red"
-    set c1.price = 987654
-    print c1 details
-    call c1.accelerate()
+create object c1 of Car
+set c1.brand = "Maruthi"
+set c1.color = "red"
+set c1.price = 987654
+print c1 details
+call c1.accelerate()
 
-    create object c2 of Car
-    set c2.brand = "Audi"
-    set c2.color = "Blue"
-    set c2.price = 10646464
-    print c2 details
-    call c2.accelerate()
+```
+create object c2 of Car
+set c2.brand = "Audi"
+set c2.color = "Blue"
+set c2.price = 10646464
+print c2 details
+call c2.accelerate()
+
+```
+
 END
 
-Code Explanation
+## Code Explanation
 
-- `public class CarApp` is the main class.
-- `main()` is the starting point of the program.
-- `Car` is a user-defined class.
-- Instance variables store the object data.
-- Methods define object behavior.
+### - `public class CarApp` is the main class.
 
-Important Points
+### - `main()` is the starting point of the program.
 
-- Each object has its own copy of instance variables.
-- `double` is used for price values that may have decimals.
-- Methods are called using the object name.
+### - `Car` is a user-defined class.
 
-Summary
+### - Instance variables store the object data.
+
+### - Methods define object behavior.
+
+## Important Points
+
+### - Each object has its own copy of instance variables.
+
+### - `double` is used for price values that may have decimals.
+
+### - Methods are called using the object name.
+
+## Summary
 
 This program demonstrates how to create multiple objects of a class,
 assign values to their fields, print them, and call methods.
-*/
+
+```
