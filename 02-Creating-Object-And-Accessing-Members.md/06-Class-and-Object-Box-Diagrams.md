@@ -1,4 +1,4 @@
-Here is a **box-and-arrow diagram** for **Class and Object in Java**.
+# Box and Arrow Diagrams for Class and Object in Java
 
 ---
 
@@ -6,7 +6,7 @@ Here is a **box-and-arrow diagram** for **Class and Object in Java**.
 
 ```text
 ┌──────────────────────┐
-│        Class          │
+│        Class         │
 │  (Blueprint / Template) │
 └──────────┬────────────┘
            │
@@ -14,9 +14,10 @@ Here is a **box-and-arrow diagram** for **Class and Object in Java**.
            │
            ▼
 ┌──────────────────────┐
-│        Object         │
+│        Object        │
 │   (Real instance)     │
 └──────────────────────┘
+
 ```
 
 ---
@@ -25,24 +26,26 @@ Here is a **box-and-arrow diagram** for **Class and Object in Java**.
 
 ```text
 ┌────────────────────────────┐
-│           Class             │
-│         Student             │
+│           Class            │
+│         Student            │
 ├────────────────────────────┤
-│ name: String                │
-│ age: int                    │
+│ name: String               │
+│ age: int                   │
 ├────────────────────────────┤
-│ display()                   │
+│ display()                  │
 └────────────┬────────────────┘
              │
              │ creates
+             │
              ▼
 ┌────────────────────────────┐
-│           Object            │
-│            s1               │
+│           Object           │
+│             s1             │
 ├────────────────────────────┤
-│ name = "Amit"               │
-│ age = 21                    │
+│ name = "Amit"              │
+│ age = 21                   │
 └────────────────────────────┘
+
 ```
 
 ---
@@ -51,22 +54,23 @@ Here is a **box-and-arrow diagram** for **Class and Object in Java**.
 
 ```text
 ┌────────────────────────────┐
-│           Class             │
-│         Student             │
+│           Class            │
+│         Student            │
 ├────────────────────────────┤
-│ name                        │
-│ age                         │
-│ display()                   │
+│ name                       │
+│ age                        │
+│ display()                  │
 └────────────┬────────────────┘
              │
-       ┌─────┴─────┐
-       │           │
-       ▼           ▼
+             ┌─────┴─────┐
+             │           │
+             ▼           ▼
 ┌─────────┐   ┌─────────┐
 │   s1    │   │   s2    │
 │ name=AI │   │ name=Riya│
 │ age=21  │   │ age=22  │
 └─────────┘   └─────────┘
+
 ```
 
 ---
@@ -75,23 +79,25 @@ Here is a **box-and-arrow diagram** for **Class and Object in Java**.
 
 ```text
 ┌──────────────────┐
-│      Class        │
-│      Car          │
+│      Class       │
+│      Car         │
 ├──────────────────┤
-│ color             │
-│ brand             │
-│ speed             │
-│ start()           │
+│ color            │
+│ brand            │
+│ speed            │
+│ start()          │
 └─────────┬────────┘
           │
           │ creates
+          │
           ▼
 ┌──────────────────┐
-│      Object       │
-│      car1         │
-│ color = Red       │
-│ brand = Toyota    │
+│      Object      │
+│      car1        │
+│ color = Red      │
+│ brand = Toyota   │
 └──────────────────┘
+
 ```
 
 ---
@@ -104,6 +110,6 @@ Class
 
 Object
 └── created from class
+
 ```
 
----
