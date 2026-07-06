@@ -1,7 +1,3 @@
-Set of **Constructor Interview Questions and Answers** in Java:
-
----
-
 # Constructor Interview Questions and Answers
 
 ## 1. What is a constructor in Java?
