@@ -1,40 +1,53 @@
-Abstract Class Rules in Java
+# Abstract Class Rules in Java
 
-1. Definition
+---
+
+## 1. Definition
+
 An abstract class is a class that cannot be instantiated directly.
 It is used as a base class for other classes.
 
-2. Use of the abstract keyword
-The abstract keyword is used to declare:
-- abstract classes
-- abstract methods
+## 2. Use of the abstract keyword
 
-3. Why abstract classes cannot be instantiated
+The abstract keyword is used to declare:
+
+* abstract classes
+* abstract methods
+
+## 3. Why abstract classes cannot be instantiated
+
 An abstract class is incomplete by design.
 It may contain abstract methods that do not have a body.
 Because of that, Java does not allow creating objects of an abstract class directly.
 
-4. Important rule
+## 4. Important rule
+
 A class that contains at least one abstract method must be declared abstract.
 
-5. Another important rule
-A subclass of an abstract class must either:
-- implement all abstract methods, or
-- be declared abstract itself.
+## 5. Another important rule
 
-6. Abstract method rule
+A subclass of an abstract class must either:
+
+* implement all abstract methods, or
+* be declared abstract itself.
+
+## 6. Abstract method rule
+
 An abstract method has:
-- no body
-- only a declaration ending with a semicolon
+
+* no body
+* only a declaration ending with a semicolon
 
 Example:
-abstract void display();
+`abstract void display();`
 
-7. Concrete class rule
+## 7. Concrete class rule
+
 A class that implements all abstract methods becomes a concrete class and can be instantiated.
 
-8. Example program
+## 8. Example program
 
+```java
 abstract class Animal {
     abstract void sound();
 
@@ -58,8 +71,11 @@ public class AbstractClassDemo {
     }
 }
 
-9. Line-by-line explanation with comments
+```
 
+## 9. Line-by-line explanation with comments
+
+```java
 abstract class Animal {                // Line 1: Declares an abstract class
     abstract void sound();              // Line 2: Declares abstract method with no body
 
@@ -83,14 +99,23 @@ public class AbstractClassDemo {       // Line 9: Main class
     }
 }
 
-10. Output
+```
+
+## 10. Output
+
+```text
 Dog barks
 Animal sleeps
 
-11. Why this example is important
+```
+
+## 11. Why this example is important
+
 It shows that abstract classes can define common behavior and force subclasses to provide specific behavior.
 
-12. Pseudocode
+## 12. Pseudocode
+
+```text
 START
     DEFINE abstract class Animal
     DECLARE abstract method sound()
@@ -104,9 +129,13 @@ START
     CALL sleep()
 END
 
-13. Summary
+```
+
+## 13. Summary
+
 An abstract class cannot be instantiated because it may contain incomplete methods.
 The abstract keyword is used to declare abstract classes and abstract methods.
 
-14. Short one-line note
+## 14. Short one-line note
+
 An abstract class is a blueprint that cannot be used to create objects directly.
