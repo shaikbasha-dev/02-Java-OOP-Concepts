@@ -1,53 +1,68 @@
-// # Program 4: Abstract Class with Final and Static Members
-/*
-## Title
-**Understanding Static and Final Methods in Abstract Classes**
+# Understanding Static and Final Methods in Abstract Classes
+
+---
 
 ## 1) Program Goal
-This program demonstrates how an abstract class can contain:
-- a `static` method,
-- a `final` method,
-- and an abstract method that must be implemented by subclasses.
 
-The goal is to show that abstraction and method behavior rules can work together in one design.
+This program demonstrates how an abstract class can contain:
+
+* A `static` method
+* A `final` method
+* An abstract method that must be implemented by subclasses
+
+The goal is to show how abstraction and method behavior rules can work together smoothly within a single design.
+
+---
 
 ## 2) Definitions
 
 ### Static Method
-A `static` method belongs to the class, not to any object.
-It can be called using the class name.
+
+A `static` method belongs to the class itself, rather than to any specific instance object. It can be invoked directly using the class name.
 
 ### Final Method
-A `final` method cannot be overridden by a subclass.
-It guarantees the behavior stays fixed.
+
+A `final` method cannot be overridden by any subclass. It guarantees that a specific behavior remains locked and unchanged throughout the inheritance chain.
 
 ### Abstract Method
-An abstract method has no body and must be implemented by subclasses.
 
-## 3) Why this program is important
-This program is important because it clarifies a common confusion:
+An abstract method has no body definition and serves as a strict structural rule that subclasses must implement.
 
-- abstract methods are meant to be implemented,
-- final methods are meant to stay unchanged,
-- and static methods are shared across the class.
+### Why this program is important
 
-## 4) Why we use this program
-We use this program to show that abstract classes can contain different kinds of methods, and each one plays a different role.
+This program is important because it clarifies a common point of confusion:
 
-## 5) How this helps Java developers
-This helps developers understand how to choose the correct method type when designing a hierarchy.
-It teaches strong object-oriented design decisions.
+* Abstract methods are designed to be overridden and implemented.
+* Final methods are designed to completely block overriding.
+* Static methods are designed to exist independently of instance creation.
 
-## 6) Real-world analogy
-Imagine a banking system:
-- `calculateInterest()` may vary by account type, so it can be abstract,
-- `displayBankName()` may always remain the same, so it can be final,
-- and `getBankCode()` may be shared by the class, so it can be static.
+---
 
-## 7) Complete Java Program
-*/
+## 3) Why we use this program
 
+We use this program to show that abstract classes are highly flexible containers. They can house different kinds of methods, where each keyword plays a distinct structural role in managing code behavior.
 
+---
+
+## 4) How this helps Java developers
+
+This helps developers understand how to choose the correct method modifiers when designing an architecture. It teaches solid object-oriented design decisions by balancing customization with immutability.
+
+---
+
+## 5) Real-world analogy
+
+Imagine a banking network:
+
+* `calculateInterest()` varies depending on the account type (Savings, Current), so it must be abstract.
+* `displayBankRules()` must remain exactly the same for legal compliance across all departments, so it is final.
+* `getBankNetworkCode()` is general utility information shared globally, making it static.
+
+---
+
+## 6) Complete Java Program
+
+```java
 abstract class Bank {
     static String bankName = "ABC Bank";
 
@@ -79,112 +94,150 @@ public class Program_4_Abstract_Class_with_Final_and_Static {
     }
 }
 
-/*
-## 8) Line-by-line explanation
+```
+
+---
+
+## 7) Line-by-line explanation
 
 ### Line 1
-```java
-package FIle7;
-```
-- Declares the package name.
 
-### Line 3
 ```java
 abstract class Bank {
-```
-- Declares an abstract class called `Bank`.
-- It cannot be instantiated directly.
 
-### Line 4
+```
+
+* Declares an abstract base class called `Bank` which cannot be instantiated directly.
+
+### Line 2
+
 ```java
     static String bankName = "ABC Bank";
-```
-- Declares a static variable.
-- It belongs to the class and is shared by all objects.
 
-### Line 6
+```
+
+* Declares a static variable that is allocated once in memory and shared across the entire class ecosystem.
+
+### Line 4
+
 ```java
     static void showBankName() {
-```
-- Declares a static method.
-- It can be called without creating an object.
 
-### Line 7
+```
+
+* Declares a static utility method that operates at the class level.
+
+### Line 5
+
 ```java
         System.out.println("Bank Name: " + bankName);
-```
-- Prints the value of the static variable.
 
-### Line 10
+```
+
+* Accesses and prints the static class field data.
+
+### Line 8
+
 ```java
     final void showRules() {
-```
-- Declares a `final` method.
-- This method cannot be overridden by subclasses.
 
-### Line 11
+```
+
+* Declares a final method, preventing any child class from changing this exact enforcement routine.
+
+### Line 9
+
 ```java
         System.out.println("Every account must follow bank rules.");
-```
-- Prints a message that must remain fixed.
 
-### Line 14
+```
+
+* Outputs the mandatory, unalterable regulatory notice.
+
+### Line 12
+
 ```java
     abstract void interestRate();
-```
-- Declares an abstract method.
-- Subclasses must provide implementation.
 
-### Line 17
+```
+
+* Declares an abstract method signature, pushing the responsibility of implementation onto child subclasses.
+
+### Line 15
+
 ```java
 class SavingsAccount extends Bank {
-```
-- Declares a subclass of `Bank`.
 
-### Line 18
+```
+
+* Establishes a concrete subclass named `SavingsAccount` that inherits from `Bank`.
+
+### Line 16
+
 ```java
     @Override
-```
-- Indicates that the method below overrides the parent method.
 
-### Line 19
+```
+
+* Explicitly states that the following method provides the concrete implementation for the parent's abstract template.
+
+### Line 17
+
 ```java
     void interestRate() {
-```
-- Implements the abstract method.
 
-### Line 20
+```
+
+* Implements the custom `interestRate()` details for this specific account type.
+
+### Line 18
+
 ```java
         System.out.println("Savings account interest rate is 4%.");
-```
-- Prints the specific rate for savings accounts.
 
-### Line 26
+```
+
+* Prints the unique interest metrics.
+
+### Line 23
+
 ```java
         Bank.showBankName();
-```
-- Calls the static method using the class name.
 
-### Line 28
+```
+
+* Invokes the static method using the class name reference directly, without constructing an object.
+
+### Line 25
+
 ```java
         Bank account = new SavingsAccount();
-```
-- Creates a `SavingsAccount` object using a `Bank` reference.
 
-### Line 29
+```
+
+* Allocates a concrete `SavingsAccount` object inside a polymorphic `Bank` reference.
+
+### Line 26
+
 ```java
         account.showRules();
-```
-- Calls the final method.
-- The behavior will not change in the subclass.
 
-### Line 30
+```
+
+* Executes the inherited final method directly from the parent definition block.
+
+### Line 27
+
 ```java
         account.interestRate();
-```
-- Calls the overridden abstract method implementation.
 
-## 9) Pseudocode
+```
+
+* Invokes the implemented logic, which dynamically resolves to the child execution block at runtime.
+
+---
+
+## 8) Pseudocode
 
 ```text
 BEGIN
@@ -214,45 +267,62 @@ BEGIN
         Call interestRate()
     END
 END
+
 ```
 
-## 10) Step-by-step working
-1. The program starts at `main()`.
-2. `Bank.showBankName()` runs because it is static.
-3. A `SavingsAccount` object is created.
-4. `showRules()` runs using the inherited final method.
-5. `interestRate()` runs using the subclass-specific implementation.
+---
 
-## 11) Output
+## 9) Step-by-step working
+
+1. The execution path hits `main()`.
+2. The runtime instantly routes to `Bank.showBankName()`, fetching the class-bound variables.
+3. A `SavingsAccount` instance is allocated under a `Bank` reference variable type.
+4. The application reads `account.showRules()`, jumping to the fixed parent routine block.
+5. The application triggers `account.interestRate()`, mapping directly to the overridden subclass business logic.
+
+---
+
+## 10) Output
 
 ```text
 Bank Name: ABC Bank
 Every account must follow bank rules.
 Savings account interest rate is 4%.
+
 ```
 
-## 12) Why the output appears this way
-The output is produced because:
-- the static method is called using the class name,
-- the final method is inherited and cannot be changed,
-- and the abstract method uses the subclass implementation.
+---
 
-## 13) Important concept learned
-This program teaches that different method types serve different purposes:
-- `static` for shared class behavior,
-- `final` for fixed behavior,
-- and `abstract` for required subclass behavior.
+## 11) Why the output appears this way
 
-## 14) Advantages of this design
-- Keeps shared logic in one place.
-- Prevents unwanted overriding.
-- Forces subclasses to implement important behavior.
-- Makes the class hierarchy clearer and more professional.
+The output matches this sequence because static methods execute via class context boundaries, the final logic cleanly streams its inherited text without alteration, and the dynamic lookup process yields the active child calculation.
 
-## 15) Summary
-This example shows how abstraction works alongside other Java keywords.
-It teaches that each keyword has a clear responsibility in building a good object-oriented design.
+---
 
-## 16) One-line takeaway
-**Static methods are shared, final methods are protected from change, and abstract methods must be implemented by subclasses.**
-*/
+## 12) Important concept learned
+
+This program highlights how keywords establish architectural rules:
+
+* `static` establishes global class-level access boundaries.
+* `final` seals logic away from accidental or malicious modification.
+* `abstract` forces a distributed workflow where child classes customize behavior.
+
+---
+
+## 13) Advantages of this design
+
+* Centralizes invariant logic to eliminate redundant code updates.
+* Protects core administrative structures from being overridden or corrupted.
+* Guarantees that essential branch features are explicitly customized by subclasses.
+
+---
+
+## 14) Summary
+
+This example shows how abstraction works alongside other Java keywords. It teaches that each keyword has a clear responsibility in building a good object-oriented design.
+
+---
+
+## 15) One-line takeaway
+
+Static methods are shared, final methods are protected from change, and abstract methods must be implemented by subclasses.
