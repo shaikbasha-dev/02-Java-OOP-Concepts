@@ -1,49 +1,63 @@
-// # Program 3: Abstract Class with Constructors
-/*
-## Title
-**Understanding Constructors in Abstract Classes**
+# Understanding Constructors in Abstract Classes
+
+---
 
 ## 1) Program Goal
+
 This program demonstrates how constructors behave in abstract classes.
 It shows that:
-- an abstract class can have a constructor,
-- the constructor is used to initialize fields,
-- and when a subclass object is created, the parent constructor is called automatically using `super()`.
+
+* An abstract class can have a constructor
+* The constructor is used to initialize common fields
+* When a subclass object is created, the parent constructor is executed automatically using constructor chaining via `super()`
+
+---
 
 ## 2) Definitions
 
 ### Constructor
-A constructor is a special method used to initialize objects when they are created.
+
+A constructor is a special block of code used to initialize objects when they are created.
 
 ### Abstract Class Constructor
-Even though an abstract class cannot be instantiated directly, it can still have a constructor.
-This constructor is called when a subclass object is created.
+
+Even though an abstract class cannot be instantiated directly, it can still have a constructor. This constructor is called during the object lifecycle creation of a concrete subclass instance.
 
 ### `super()`
-`super()` is used to call the parent class constructor from the child class constructor.
 
-## 3) Why this program is important
-This program is important because many beginners think abstract classes cannot have constructors.
-In reality, abstract classes can have constructors, and they are often used to initialize common data.
+`super()` is a keyword used inside a subclass constructor to call the parent class constructor.
 
-## 4) Why we use this program
+### Why this program is important
+
+This program is important because many beginners think abstract classes cannot have constructors. In reality, they are widely used to safely initialize instance fields shared by multiple child classes.
+
+---
+
+## 3) Why we use this program
+
 We use this program to understand:
-- how constructors in abstract classes work,
-- how inheritance affects object creation,
-- and why `super()` is important.
 
-## 5) How this helps Java developers
-This helps developers design classes in a professional way.
-It teaches that common initialization logic can be written once in the abstract parent class and reused by all subclasses.
+* How constructors in abstract classes operate
+* How inheritance affects object memory allocation and initialization order
+* Why `super()` is necessary when the parent class lacks a default constructor
 
-## 6) Real-world analogy
-Think of a company system where every employee object must have a company ID and name.
-Instead of copying that initialization logic into every subclass, the abstract base class can handle it once.
+---
 
-## 7) Complete Java Program
-*/
+## 4) How this helps Java developers
 
+This helps developers design classes in a professional way. It teaches that common initialization logic can be written once in the abstract parent class and safely reused by all subclasses, maintaining clean and unified data records.
 
+---
+
+## 5) Real-world analogy
+
+Think of an official company directory system where every employee profile must record an ID and name. Instead of copying that initialization profile script into every subclass, the abstract base class handles it once during registration.
+
+---
+
+## 6) Complete Java Program
+
+```java
 abstract class Animal {
     String name;
 
@@ -71,119 +85,150 @@ public class Program_3_Abstract_Class_with_Constructors {
     }
 }
 
-/*
-## 8) Line-by-line explanation
+```
+
+---
+
+## 7) Line-by-line explanation
 
 ### Line 1
-```java
-package FIle7;
-```
-- Declares the package for the file.
-- Helps organize related classes.
 
-### Line 3
 ```java
 abstract class Animal {
-```
-- Declares an abstract class named `Animal`.
-- This class cannot be instantiated directly.
 
-### Line 4
+```
+
+* Declares an abstract class named `Animal` that serves as our blueprint.
+
+### Line 2
+
 ```java
     String name;
-```
-- Declares a field named `name`.
-- This field stores the animal's name.
 
-### Line 6
+```
+
+* Declares an instance field named `name` to store the animal's identity data.
+
+### Line 4
+
 ```java
     Animal(String name) {
-```
-- This is a constructor of the abstract class.
-- It accepts a `String` value and initializes the field.
 
-### Line 7
+```
+
+* This is the parameterized constructor of our abstract class.
+
+### Line 5
+
 ```java
         this.name = name;
-```
-- Assigns the value of the constructor parameter to the field.
-- `this.name` refers to the current object’s field.
 
-### Line 8
+```
+
+* Assigns the value of the parameter to the local variable field using `this` reference.
+
+### Line 6
+
 ```java
         System.out.println("Animal constructor called");
-```
-- Prints a message when the abstract parent constructor runs.
 
-### Line 11
+```
+
+* Prints a message verifying that the base parent block has initialized.
+
+### Line 9
+
 ```java
     void display() {
-```
-- Declares a normal method that prints the animal name.
 
-### Line 12
+```
+
+* Declares a normal, concrete method that prints the assigned variable state.
+
+### Line 10
+
 ```java
         System.out.println("Animal name: " + name);
-```
-- Prints the value of the `name` field.
-- `+` concatenates the text and the variable value.
 
-### Line 16
+```
+
+* Concatenates and prints the assigned string representation.
+
+### Line 14
+
 ```java
 class Dog extends Animal {
-```
-- Declares a subclass called `Dog`.
-- `Dog` inherits from `Animal`.
 
-### Line 17
+```
+
+* Declares a subclass called `Dog` which inherits structural features from `Animal`.
+
+### Line 15
+
 ```java
     Dog(String name) {
-```
-- Constructor of the `Dog` class.
-- It accepts a name and will pass it to the parent constructor.
 
-### Line 18
+```
+
+* Parameterized constructor of the `Dog` class.
+
+### Line 16
+
 ```java
         super(name);
-```
-- Calls the parent class constructor.
-- This ensures the abstract parent initializes its field properly.
 
-### Line 19
+```
+
+* Explicitly invokes the parent constructor, tracking parameters upstream.
+
+### Line 17
+
 ```java
         System.out.println("Dog constructor called");
-```
-- Prints a message indicating that the child constructor has executed.
 
-### Line 24
+```
+
+* Prints a message indicating that the child-specific block has successfully completed execution.
+
+### Line 21
+
 ```java
 public class Program_3_Abstract_Class_with_Constructors {
-```
-- Declares the public class that contains the `main` method.
 
-### Line 25
+```
+
+* Declares the entry wrapper class.
+
+### Line 22
+
 ```java
     public static void main(String[] args) {
-```
-- Starts the main method.
-- This is the program's entry point.
 
-### Line 26
+```
+
+* Starts the execution runtime path.
+
+### Line 23
+
 ```java
         Dog dog = new Dog("Tommy");
-```
-- Creates a `Dog` object.
-- The string `"Tommy"` is passed to the constructor.
-- Java first runs the parent constructor and then the child constructor.
 
-### Line 27
+```
+
+* Creates a `Dog` instance. Java chains execution to the parent constructor before finishing the subclass constructor block.
+
+### Line 24
+
 ```java
         dog.display();
-```
-- Calls the `display()` method on the `Dog` object.
-- This prints the animal name.
 
-## 9) Pseudocode
+```
+
+* Invokes the inherited utility method on the created object reference.
+
+---
+
+## 8) Pseudocode
 
 ```text
 BEGIN
@@ -211,44 +256,62 @@ BEGIN
         Call display()
     END
 END
+
 ```
 
-## 10) Step-by-step working
-1. The program starts in `main()`.
-2. A new `Dog` object is created.
-3. Java first calls the `Animal` constructor.
-4. The `Animal` constructor initializes the `name` field.
-5. Then the `Dog` constructor runs.
-6. Finally, `display()` prints the name.
+---
 
-## 11) Output
+## 9) Step-by-step working
+
+1. The execution stack targets the `main()` container logic.
+2. The runtime tries to construct an instance of `Dog` with `"Tommy"`.
+3. The stack points immediately to `super(name)` within `Dog`'s constructor.
+4. `Animal` constructor executes, logging its tracking output first.
+5. Control drops back to finalize the subclass execution path.
+6. The compiled `display()` routine runs, querying the stored instance strings.
+
+---
+
+## 10) Output
 
 ```text
 Animal constructor called
 Dog constructor called
 Animal name: Tommy
+
 ```
 
-## 12) Why the output appears this way
+---
+
+## 11) Why the output appears this way
+
 The output appears in this order because:
-- the parent constructor runs before the child constructor,
-- Java always initializes the parent part of the object first,
-- and then the child-specific part.
 
-## 13) Important concept learned
-This program teaches that abstract classes can still be responsible for initialization.
-It also shows the importance of constructor chaining through `super()`.
+* The parent constructor runs completely before the child execution sequence block finishes
+* Java guarantees the memory map configuration belonging to the superclass is initialized safely first
 
-## 14) Advantages of this design
-- Keeps common initialization code in one place.
-- Makes object creation more organized.
-- Helps maintain a clean inheritance hierarchy.
-- Ensures the parent object is initialized before the child object is used.
+---
 
-## 15) Summary
-This program clearly shows that abstract classes are not just empty templates.
-They can contain constructors, fields, and shared methods that help all subclasses work correctly.
+## 12) Important concept learned
 
-## 16) One-line takeaway
-**An abstract class can initialize shared data through its constructor, and subclasses use `super()` to invoke it.**
-*/
+This program teaches that abstract classes can still be responsible for initialization. It also shows the absolute structural requirement of constructor chaining using the `super` statement reference tool.
+
+---
+
+## 13) Advantages of this design
+
+* Prevents initialization repetition inside cascading child hierarchies
+* Promotes encapsulation by keeping the variables localized to the logical base script
+* Guarantees parent setup properties exist safely before subroutines invoke them
+
+---
+
+## 14) Summary
+
+This program clearly shows that abstract classes are not just empty templates. They can contain constructors, fields, and shared methods that help all subclasses work correctly.
+
+---
+
+## 15) One-line takeaway
+
+An abstract class can initialize shared data through its constructor, and subclasses use `super()` to invoke it.
