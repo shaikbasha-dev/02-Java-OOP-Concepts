@@ -1,62 +1,82 @@
-03_Abstract_Methods_Deep_Dive.txt
+# Abstract Methods in Java – Deep Dive
 
-Abstract Methods in Java – Deep Dive
+---
 
-1. Definition
+## 1. Definition
+
 An abstract method is a method that is declared without a body.
 It only defines the method signature and tells the subclass what behavior must be provided.
 
-2. Syntax of an abstract method
-abstract returnType methodName(parameters);
+## 2. Syntax of an abstract method
+
+`abstract returnType methodName(parameters);`
 
 Example:
-abstract void sound();
+`abstract void sound();`
 
-3. Important rule
+## 3. Important rule
+
 A method declared as abstract must not contain a body.
 That means you must end it with a semicolon.
 
-4. Why abstract methods are needed
+## 4. Why abstract methods are needed
+
 Abstract methods are used when:
-- the parent class knows the method name and purpose,
-- but the exact implementation depends on the subclass.
+
+* the parent class knows the method name and purpose,
+* but the exact implementation depends on the subclass.
 
 Example:
 Every animal can make a sound, but each animal makes a different sound.
 
-5. Rule about abstract classes
+## 5. Rule about abstract classes
+
 If a class contains even one abstract method, the class must also be declared abstract.
 
-6. What is a method signature?
+## 6. What is a method signature?
+
 The method signature includes:
-- method name
-- parameter list
-- return type
+
+* method name
+* parameter list
+* return type
 
 Example:
-void sound()
+`void sound()`
 
-7. What is a method body?
-The method body contains the actual code inside { }.
+## 7. What is a method body?
+
+The method body contains the actual code inside `{ }`.
+
 Example:
+
+```java
 void sound() {
     System.out.println("Dog barks");
 }
 
-8. Difference between declaration and definition
-- Declaration: tells Java the method exists
-- Definition: gives the actual implementation
+```
+
+## 8. Difference between declaration and definition
+
+* **Declaration:** tells Java the method exists
+* **Definition:** gives the actual implementation
 
 Abstract method:
-abstract void sound();
+`abstract void sound();`
 
 Concrete method:
+
+```java
 void sound() {
     System.out.println("Dog barks");
 }
 
-9. Example program
+```
 
+## 9. Example program
+
+```java
 abstract class Animal {
     abstract void sound();
 }
@@ -85,8 +105,11 @@ public class AbstractMethodDemo {
     }
 }
 
-10. Line-by-line explanation with comments
+```
 
+## 10. Line-by-line explanation with comments
+
+```java
 abstract class Animal {               // Line 1: Declares abstract class Animal
     abstract void sound();             // Line 2: Declares abstract method with no body
 }
@@ -115,15 +138,24 @@ public class AbstractMethodDemo {     // Line 11: Main class
     }
 }
 
-11. Output
+```
+
+## 11. Output
+
+```text
 Dog barks
 Cat meows
 
-12. Why this is important
+```
+
+## 12. Why this is important
+
 This example shows that the abstract method defines a contract,
 while the subclasses provide the actual implementation.
 
-13. Pseudocode
+## 13. Pseudocode
+
+```text
 START
     CREATE abstract class Animal
     DECLARE abstract method sound()
@@ -140,10 +172,14 @@ START
     CALL a2.sound()
 END
 
-14. Summary
+```
+
+## 14. Summary
+
 Abstract methods are methods without a body.
 They tell subclasses what they must do.
 The actual implementation is provided by the concrete subclasses.
 
-15. Short note
+## 15. Short note
+
 An abstract method is a promise that the subclass must fulfill.
