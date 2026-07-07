@@ -1,20 +1,49 @@
-Interface:
+# Java Interfaces: Single and Multiple Inheritance
 
-The major use of an Interface is to provide a class the ability to achieve multiple inheritance in Java.
-Hence in Java multiple inheritance can be achieved with the help of Interface.
-Interface can also act like service requirement specification (SRS) & help us to achieve standardization of code.
+---
 
-Basic calculator program without using Interface concept:
+## 1) Program Goal & Overview
+
+This set of programs demonstrates the concept of **Interfaces** in Java.
+
+An interface acts as a **Service Requirement Specification (SRS)** or a contract. It defines *what* a class should do, without specifying *how* it should do it. This promotes architectural standardization. Furthermore, since Java does not support multiple inheritance with classes to avoid ambiguity, interfaces provide a clean mechanism to achieve **multiple inheritance** by allowing a single concrete class to implement multiple interfaces simultaneously.
+
+---
+
+## 2) Definitions
+
+### Interface
+
+A reference type in Java that is a collection of abstract methods. It establishes a contract that any implementing class must fulfill.
+
+### Multiple Inheritance
+
+A feature where a class can inherit behaviors and features from more than one parent type. Java implements this solely through interfaces.
+
+### Standardization (SRS)
+
+Using interfaces to create consistent method signatures across completely different implementation classes, ensuring code uniformity and predictability across a development team.
+
+---
+
+## 3) Program 1: Basic Calculator Without Interfaces
+
+This basic example shows a standard concrete class handling its own operations without adhering to an external contract or architectural rule.
+
+### Complete Java Program
+
+```java
 class Calculator {
     public void add() {
         int a = 10;
         int b = 20;
-        System.out.println("Addition Result: " + (a+b));
+        System.out.println("Addition Result: " + (a + b));
     }
+    
     public void sub() {
         int a = 20;
         int b = 10;
-        System.out.println("Substraction Result: " + (a-b));
+        System.out.println("Substraction Result: " + (a - b));
     }
 }
 
@@ -26,7 +55,9 @@ class Demo {
     }
 }
 
-Here is the output of the Java program:
+```
+
+### Output
 
 ```text
 Addition Result: 30
@@ -34,146 +65,153 @@ Substraction Result: 10
 
 ```
 
-### Why this is the output:
+### Why the output appears this way
 
-* **Execution Starts at `main**`: The JVM begins execution in the `Demo` class inside the `main` method.
-* **Object Creation**: `Calculator c = new Calculator();` creates a new instance of the `Calculator` class.
-* **Method Calls**:
-* `c.add();` calls the `add` method, which initializes $a = 10$ and $b = 20$, calculates $10 + 20$, and prints `Addition Result: 30`.
-* `c.sub();` calls the `sub` method, which initializes $a = 20$ and $b = 10$, calculates $20 - 10$, and prints `Substraction Result: 10` (preserving the exact spelling used in your `System.out.println` statement).
+* **Execution Path**: The virtual machine triggers execution from the `main` method of the `Demo` class.
+* **Instance Space**: An isolated `Calculator` object is allocated in memory.
+* **Method Invocation**: Calling `c.add()` and `c.sub()` directly initializes localized primitives and streams the calculated arithmetic results straight to the console.
 
-Basic calculator program with using Interface concept:
+---
 
+## 4) Program 2: Basic Calculator Using a Single Interface
+
+This example demonstrates code standardization. A single `Calculator` interface sets the standard, and three separate classes (`Calci1`, `Calci2`, `Calci3`) implement it in their own unique ways (static values, separate assignment, and dynamic user console input).
+
+### Complete Java Program
+
+```java
 import java.util.Scanner;
 
-// This interface defines the common behavior for all calculator classes.
-// Every calculator class must provide add() and sub() methods.
+// Architectural specification for all calculator modules
 interface Calculator {
     void add();
     void sub();
 }
 
-// Calci1 uses direct initialization of values inside the method.
+// Implementation Option 1: Direct inline initialization
 class Calci1 implements Calculator {
-    // This method adds two fixed numbers and prints the result.
+    @Override
     public void add() {
-        int a = 10;      // First fixed number
-        int b = 20;      // Second fixed number
-        int sum = a + b; // Calculate sum
-        System.out.println("Sum: " + sum); // Print the result
+        int a = 10;
+        int b = 20;
+        int sum = a + b;
+        System.out.println("Sum: " + sum);
     }
 
-    // This method subtracts two fixed numbers and prints the result.
+    @Override
     public void sub() {
-        int a = 10;      // First fixed number
-        int b = 20;      // Second fixed number
-        int sub = b - a; // Calculate subtraction
-        System.out.println("Sub: " + sub); // Print the result
+        int a = 10;
+        int b = 20;
+        int sub = b - a;
+        System.out.println("Sub: " + sub);
     }
 }
 
-// Calci2 uses declaration first and then assignment.
+// Implementation Option 2: Declaration separated from assignment
 class Calci2 implements Calculator {
-    // This method declares variables first and then assigns values.
+    @Override
     public void add() {
-        int a;   // Declare first number
-        int b;   // Declare second number
-        a = 10;  // Assign first number
-        b = 20;  // Assign second number
-        int sum = a + b; // Calculate sum
-        System.out.println("Sum: " + sum); // Print the result
+        int a;
+        int b;
+        a = 10;
+        b = 20;
+        int sum = a + b;
+        System.out.println("Sum: " + sum);
     }
 
-    // This method also declares variables first and then assigns values.
+    @Override
     public void sub() {
-        int a;   // Declare first number
-        int b;   // Declare second number
-        a = 10;  // Assign first number
-        b = 20;  // Assign second number
-        int sub = b - a; // Calculate subtraction
-        System.out.println("Sub: " + sub); // Print the result
+        int a;
+        int b;
+        a = 10;
+        b = 20;
+        int sub = b - a;
+        System.out.println("Sub: " + sub);
     }
 }
 
-// Calci3 takes user input from the keyboard.
+// Implementation Option 3: Dynamic interactive keyboard entry
 class Calci3 implements Calculator {
-    // This method asks the user to enter two numbers and prints their sum.
+    @Override
     public void add() {
-        Scanner sc = new Scanner(System.in); // Create scanner object
+        Scanner sc = new Scanner(System.in);
         System.out.print("Please enter first number: ");
-        int a = sc.nextInt(); // Read first number from user
-        System.out.println();
+        int a = sc.nextInt();
         System.out.print("Please enter second number: ");
-        int b = sc.nextInt(); // Read second number from user
-        System.out.println();
-        int sum = a + b; // Calculate sum
-        System.out.println("Sum: " + sum); // Print the result
+        int b = sc.nextInt();
+        int sum = a + b;
+        System.out.println("Sum: " + sum);
     }
 
-    // This method asks the user to enter two numbers and prints subtraction.
+    @Override
     public void sub() {
-        Scanner sc = new Scanner(System.in); // Create scanner object
+        Scanner sc = new Scanner(System.in);
         System.out.print("Please enter first number: ");
-        int a = sc.nextInt(); // Read first number from user
-        System.out.println();
+        int a = sc.nextInt();
         System.out.print("Please enter second number: ");
-        int b = sc.nextInt(); // Read second number from user
-        System.out.println();
-        int sub = a - b; // Calculate subtraction
-        System.out.println("Substraction: " + sub); // Print the result
+        int b = sc.nextInt();
+        int sub = a - b;
+        System.out.println("Substraction: " + sub);
     }
 }
 
-// This is the main class that runs the program.
 public class BasicCalculator {
     public static void main(String[] args) {
-        // Step 1: Create object of Calci1 and call its methods.
+        // Executing standard static implementations
         Calci1 c1 = new Calci1();
         c1.add();
         c1.sub();
 
-        // Step 2: Create object of Calci2 and call its methods.
         Calci2 c2 = new Calci2();
         c2.add();
         c2.sub();
 
-        // Step 3: Create object of Calci3 and call its methods.
+        // Executing dynamic interactive implementation
         Calci3 c3 = new Calci3();
         c3.add();
         c3.sub();
     }
 }
 
-/*
-PSEUDOCODE:
-1. Start the program.
-2. Define an interface named Calculator with add() and sub() methods.
-3. Create class Calci1 that implements Calculator.
-4. In Calci1.add(), store 10 and 20, calculate their sum, and display it.
-5. In Calci1.sub(), store 10 and 20, calculate b - a, and display it.
-6. Create class Calci2 that also implements Calculator.
-7. In Calci2.add(), declare variables first, assign values, calculate sum, and display it.
-8. In Calci2.sub(), declare variables first, assign values, calculate difference, and display it.
-9. Create class Calci3 that reads values from user input.
-10. In Calci3.add(), ask for two numbers, read them, calculate sum, and display it.
-11. In Calci3.sub(), ask for two numbers, read them, calculate difference, and display it.
-12. In the main class, create objects of all three classes.
-13. Call add() and sub() methods for each object.
-14. End the program.
-*/
+```
 
-/*
-SUMMARY:
-This program demonstrates how to use an interface in Java.
-It shows three different ways to perform addition and subtraction.
-Calci1 uses direct values, Calci2 uses declared variables, and Calci3 takes input from the user.
-The main method runs all examples one by one.
-*/
+### Pseudocode
 
-Basic calculator program with using Two Interfaces:
+```text
+BEGIN
+    Define Interface Calculator
+        Declare abstract routines add() and sub()
+    END
 
-import java.util.Scanner;
+    Define Class Calci1 implementing Calculator
+        Provide inline calculations for static values (10, 20)
+    END
 
+    Define Class Calci2 implementing Calculator
+        Provide separate declaration/assignment blocks for static values
+    END
+
+    Define Class Calci3 implementing Calculator
+        Instantiate Scanner console capture
+        Extract inputs, evaluate formulas, print outputs
+    END
+
+    In main runner context:
+        Instantiate c1, c2, c3 sequentially
+        Trigger respective structural implementations
+END
+
+```
+
+---
+
+## 5) Program 3: Achieving Multiple Inheritance via Two Interfaces
+
+This program proves that a single class can implement multiple separate interfaces at once. If there is a duplicate method signature across interfaces (such as `sub()`), the subclass implements it once, elegantly avoiding the compiler collisions typical of class-based multiple inheritance.
+
+### Complete Java Program
+
+```java
 interface Calci1 {
     void add();
     void sub();
@@ -184,7 +222,9 @@ interface Calci2 {
     void sub();
 }
 
+// Concrete subclass successfully implementing multiple distinct interfaces
 class Calculator implements Calci1, Calci2 {
+    @Override
     public void add() {
         int a = 10;
         int b = 20;
@@ -192,6 +232,7 @@ class Calculator implements Calci1, Calci2 {
         System.out.println("Sum: " + sum);
     }
 
+    @Override
     public void sub() {
         int a = 10;
         int b = 20;
@@ -199,18 +240,20 @@ class Calculator implements Calci1, Calci2 {
         System.out.println("Sub: " + sub);
     }
 
+    @Override
     public void mul() {
         int a = 10;
         int b = 20;
         int mul = a * b;
-        System.out.println("Mul: " + mul); // Fixed label
+        System.out.println("Mul: " + mul);
     }
 
+    // Additional standalone routine unique to this concrete class
     public void div() {
         int a = 10;
         int b = 20;
         int div = b / a;
-        System.out.println("Div: " + div); // Fixed label
+        System.out.println("Div: " + div);
     }
 }
 
@@ -224,8 +267,28 @@ public class App {
     }
 }
 
-output:
+```
+
+### Output
+
+```text
 Sum: 30
 Sub: 10
 Mul: 200
 Div: 2
+
+```
+
+---
+
+## 6) Architectural Advantages of Interfaces
+
+* **Decoupling**: Separates system contracts from runtime behavioral execution rules.
+* **Polymorphism**: Allows a single structural signature type to safely reference multiple target implementations.
+* **No Ambiguity**: Resolves diamond inheritance issues by standardizing overlapping declarations to a single implementation block.
+
+---
+
+## 7) One-line takeaway
+
+Interfaces establish uniform code standards and act as the sole mechanism for achieving safe multiple inheritance in Java.
