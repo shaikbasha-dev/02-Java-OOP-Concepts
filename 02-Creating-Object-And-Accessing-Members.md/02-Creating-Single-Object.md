@@ -7,69 +7,49 @@ print those values, and call its methods.
 Java Program with comments on each step
 ```
 
-// Main class of the program
-public class StudentApp {
+// Demonstrates creating a single object and accessing its data members and methods.
 
-    // Main method where program execution begins
+public class CreatingSingleObject {
+
     public static void main(String[] args) {
 
-        // Step 1: Create an object of the Student class
-        Student s = new Student();
+        // Create a Student object
+        Student student = new Student();
 
-        // Step 2: Assign a value to the name field
-        s.name = "Apple";
+        // Assign values to data members
+        student.name = "Apple";
+        student.age = 18;
+        student.gender = "Male";
 
-        // Step 3: Display the name on the screen
-        System.out.println("Name: " + s.name);
+        // Display student information
+        System.out.println("Name   : " + student.name);
+        System.out.println("Age    : " + student.age);
+        System.out.println("Gender : " + student.gender);
 
-        // Step 4: Assign a value to the age field
-        s.age = 18;
-
-        // Step 5: Display the age on the screen
-        System.out.println("Age: " + s.age);
-
-        // Step 6: Assign a value to the gender field
-        s.gender = "Male";
-
-        // Step 7: Display the gender on the screen
-        System.out.println("Gender: " + s.gender);
-
-        // Step 8: Call the coming() method
-        s.coming();
-
-        // Step 9: Call the eat() method
-        s.eat();
-
-        // Step 10: Call the go() method
-        s.go();
+        // Invoke student behaviors
+        student.coming();
+        student.eat();
+        student.go();
     }
 }
 
-// Student class with variables and methods
+// Represents a student with basic attributes and behaviors.
 class Student {
 
-    // Step 11: Declare the name variable
     String name;
-
-    // Step 12: Declare the age variable
     int age;
-
-    // Step 13: Declare the gender variable
     String gender;
 
-    // Step 14: Method to show the student is coming to school
-    public void comming() {
-        System.out.println("Student is coming to school");
+    public void coming() {
+        System.out.println("Student is coming to school.");
     }
 
-    // Step 15: Method to show the student is eating food
     public void eat() {
-        System.out.println("Student is eating food");
+        System.out.println("Student is eating food.");
     }
 
-    // Step 16: Method to show the student is going home
     public void go() {
-        System.out.println("Student is going home");
+        System.out.println("Student is going home.");
     }
 }
 
