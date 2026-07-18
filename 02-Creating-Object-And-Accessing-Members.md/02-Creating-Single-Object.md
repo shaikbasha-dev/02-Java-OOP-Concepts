@@ -5,7 +5,7 @@ This program shows how to create an object of a class, store values in its varia
 print those values, and call its methods.
 
 Java Program with comments on each step
-
+```
 
 // Main class of the program
 public class StudentApp {
@@ -72,6 +72,8 @@ class Student {
         System.out.println("Student is going home");
     }
 }
+
+```
 
 ## Output:
 Name: Apple
