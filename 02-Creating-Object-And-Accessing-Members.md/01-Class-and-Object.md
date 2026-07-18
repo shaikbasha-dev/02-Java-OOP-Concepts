@@ -19,20 +19,19 @@ A class defines:
 
 ### Example:
 
+```
+
 class Car {
 String color;
 int speed;
-
-
-```
 
 void drive() {
 System.out.println("Car is moving");
 }
 
-```
-
 }
+
+```
 
 In this example:
 
@@ -69,10 +68,9 @@ Here:
 
 ## Simple Example
 
-class Student {
-
-
 ```
+
+class Student {
 
 String name;
 int age;
@@ -82,18 +80,12 @@ System.out.println("Name: " + name);
 System.out.println("Age: " + age);
 }
 
-```
-
 }
 
 public class Main {
 
-
-```
-
 public static void main(String[] args) {
 
-```
 Student s1 = new Student();
 
 s1.name = "Rahul";
@@ -101,13 +93,11 @@ s1.age = 20;
 
 s1.display();
 
-```
+}
 
 }
 
 ```
-
-}
 
 ### Output
 
